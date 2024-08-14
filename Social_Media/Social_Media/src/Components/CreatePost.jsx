@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PostContext } from "../store/post-store";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   let getId = useRef();
@@ -9,6 +10,7 @@ const CreatePost = () => {
   let getTags = useRef();
 
   let { addPost } = useContext(PostContext);
+  const navigate = useNavigate();
 
   const getData = (event) => {
     event.preventDefault();
@@ -23,7 +25,10 @@ const CreatePost = () => {
       }),
     })
       .then((res) => res.json())
-      .then((sendPost) => addPost(sendPost));
+      .then((sendPost) => {
+        addPost(sendPost);
+        navigate('/')
+      });
     getId.current.value = "";
     getTitle.current.value = "";
     getBody.current.value = "";

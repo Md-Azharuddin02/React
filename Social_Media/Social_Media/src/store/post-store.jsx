@@ -51,7 +51,6 @@ const PostContextProvide = ({ children }) => {
       type: "ADD_POST",
       payloads: sendPost
     })
-    console.log(sendPost)
   };
   const deletePost = (id) => {
     dispatchPostList({
