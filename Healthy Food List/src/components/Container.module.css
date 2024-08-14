@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+  margin: 150px auto;
+  padding: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  max-width: 600px;
+  min-width: 290px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+}
+button {
+  float: right;
+}
+input {
+  border-radius: 5px;
+  padding: 5px 7px;
+  
+}
+
+

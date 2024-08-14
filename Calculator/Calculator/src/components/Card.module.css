@@ -1,0 +1,13 @@
+.mycard{
+    max-width: 330px;
+    min-width: 480px;
+    background-color: rgb(35, 204, 204);
+    margin: 0px auto;
+    position: relative;
+    top: 180px;
+}
+
+.getCardBody{
+    display: flex;
+    flex-direction: column;
+}

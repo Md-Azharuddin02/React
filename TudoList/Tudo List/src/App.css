@@ -1,0 +1,38 @@
+.app-cotainer{
+  padding: 10px;
+}
+.heading{
+  font-size:40px;
+  font-weight: 700;
+  font-family: serif;
+  text-align: center;
+  
+}
+.input-task{
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  outline: navy;
+}
+
+.input-date{
+  width: 100%;
+}
+.input-field{
+  width: 100%;
+  text-align: left;
+}
+.date-field{
+  width: 100%;
+  text-align: left;
+}
+.add-btn, .delete-btn{
+  width: 80px;
+}
+.row-alingn{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+

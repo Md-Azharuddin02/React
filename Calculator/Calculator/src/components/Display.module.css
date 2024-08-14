@@ -1,0 +1,15 @@
+
+.displayStyle{
+    width: 95%;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px auto;
+    background-color: rgb(243, 239, 239);
+    height: 50px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    overflow: hidden;
+    font-size: 25px;
+}
