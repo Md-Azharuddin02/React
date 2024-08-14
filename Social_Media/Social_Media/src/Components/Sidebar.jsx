@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../routes/App";
 
 const Sidebar = ({ selectedTab, setSelectedTab }) => {
@@ -8,14 +9,14 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
         style={{ width: "200px" }}>
         <ul className="nav nav-pills flex-column mb-auto">
           <li>
-            <a href="/" className="nav-link text-white" aria-current="page">
+            <Link to ="/" className="nav-link text-white" aria-current="page">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/create-post" className="nav-link text-white">
+            <Link to="/create-post" className="nav-link text-white">
               Create Post
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
