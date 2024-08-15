@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./routes/App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import CreatePost from "./Components/CreatePost";
+import CreatePost, {getFormData} from "./Components/CreatePost";
 import PostList, {fetchPostData} from "./Components/PostList";
 
 const router = createBrowserRouter([
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
         loader: fetchPostData
        
       },
-      { path: "/create-post", element: <CreatePost /> },
+      { path: "/create-post", element: <CreatePost />, action:getFormData },
     ],
   },
 ]);

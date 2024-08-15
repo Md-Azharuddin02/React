@@ -1,7 +1,6 @@
 
 import Post from "./Post";
 import EmptyPost from "./EmpyPost";
-import Loader from "./Loader"
 import { useLoaderData } from "react-router-dom";
 const PostList = () => {
 

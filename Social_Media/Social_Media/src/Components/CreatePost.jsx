@@ -1,47 +1,19 @@
-import { useContext, useState } from "react";
-import { PostContext } from "../store/post-store";
-import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect } from "react-router-dom";
+import { Form } from "react-router-dom";
 
 const CreatePost = () => {
-  let getId = useRef();
-  let getTitle = useRef();
-  let getBody = useRef();
-  let getTags = useRef();
 
-  let { addPost} = useContext(PostContext);
-  const navigate = useNavigate();
+  // const getData = (event) => {
 
-  const getData = (event) => {
-    event.preventDefault();
-    fetch("https://dummyjson.com/posts/add", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        userId: getId.current.value,
-        title: getTitle.current.value,
-        body: getBody.current.value,
-        tags: getTags.current.value.split(","),
-      }),
-    })
-      .then((res) => res.json())
-      .then((sendPost) => {
-        addPost(sendPost);
-        navigate('/')
-      });
-    getId.current.value = "";
-    getTitle.current.value = "";
-    getBody.current.value = "";
-    getTags.current.value = "";
-  };
+  // };
   return (
-    <form className=" p-4 m-4 border" onSubmit={(event) => getData(event)}>
+    <Form method="POST" className=" p-4 m-4 border">
       <div className="mb-3">
         <input
           type="number"
           className="form-control"
           placeholder="Id"
-          ref={getId}
+          name="userId"
         />
       </div>
       <div className="mb-3">
@@ -49,7 +21,8 @@ const CreatePost = () => {
           type="text"
           className="form-control"
           placeholder="Title"
-          ref={getTitle}
+          name="title"
+
         />
       </div>
       <div className="mb-3">
@@ -57,7 +30,8 @@ const CreatePost = () => {
           type="text"
           className="form-control"
           placeholder="Post"
-          ref={getBody}
+          name="body"
+
         />
       </div>
       <div className="mb-3">
@@ -65,13 +39,31 @@ const CreatePost = () => {
           type="text"
           className="form-control"
           placeholder="Tags"
-          ref={getTags}
+          name="tags"
         />
       </div>
       <button type="submit" className="btn btn-primary w-100">
         Submit
       </button>
-    </form>
+    </Form>
   );
 };
+
+export async function getFormData(data){
+  const formData= await data.request.formData()
+  const postData= Object.fromEntries(formData)
+   postData.tags= postData.tags.split(",")
+
+ await fetch("https://dummyjson.com/posts/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(postData)
+  })
+    .then((res) => res.json())
+    .then((sendPost) => {
+      console.log(sendPost)
+    });
+
+  return redirect('/')
+}
 export default CreatePost;
