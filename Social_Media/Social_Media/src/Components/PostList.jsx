@@ -1,17 +1,23 @@
-import { useContext } from "react";
-import { PostContext } from "../store/post-store";
+
 import Post from "./Post";
 import EmptyPost from "./EmpyPost";
 import Loader from "./Loader"
+import { useLoaderData } from "react-router-dom";
 const PostList = () => {
-  const { postList, spinner} = useContext(PostContext);
+
+  const postList= useLoaderData()
 
   return (
     <>
-      {spinner && <Loader />}
-      {!spinner && postList.length === 0 && <EmptyPost />}
-      {!spinner && postList.map((i) => <Post key={i.id} post={i}  />) }
+      {postList.length === 0 && <EmptyPost />}
+      {postList.map((i) => <Post key={i.id} post={i}  />) }
     </>
   );
 };
+
+export const fetchPostData= ()=>{
+  return fetch("https://dummyjson.com/posts")
+  .then((res) => res.json())
+  .then((data) => data.posts);
+}
 export default PostList;

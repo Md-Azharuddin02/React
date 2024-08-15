@@ -30,21 +30,8 @@ export const PostContext = createContext({
 const PostContextProvide = ({ children }) => {
   // Reducer hook
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
-  useEffect(() => {
-    setSpinner(true);
-    fetch("https://dummyjson.com/posts")
-      .then((res) => res.json())
-      .then((data) => {
-        dispatchPostList({
-          type: "FETCH_ALL_DATA",
-          payloads:data.posts
-        }), setSpinner(false);
-      });
-    
-    return () => {
-      console.log("cleaning the code");
-    }
-  }, []);
+  const [spinner, setSpinner] = useState(false);
+ 
   const addPost = (sendPost) => {
     dispatchPostList({
       type: "ADD_POST",
@@ -65,6 +52,8 @@ const PostContextProvide = ({ children }) => {
         postList,
         addPost,
         deletePost,
+        spinner,
+        setSpinner,
       }}
     >
       {children}

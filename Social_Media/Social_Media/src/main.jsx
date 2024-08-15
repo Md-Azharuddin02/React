@@ -3,14 +3,19 @@ import { createRoot } from "react-dom/client";
 import App from "./routes/App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import CreatePost from "./Components/CreatePost";
-import PostList from "./Components/PostList";
+import PostList, {fetchPostData} from "./Components/PostList";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <PostList /> },
+      {
+        path: "/",
+        element: <PostList />,
+        loader: fetchPostData
+       
+      },
       { path: "/create-post", element: <CreatePost /> },
     ],
   },
