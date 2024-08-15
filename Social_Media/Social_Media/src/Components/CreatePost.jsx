@@ -9,7 +9,7 @@ const CreatePost = () => {
   let getBody = useRef();
   let getTags = useRef();
 
-  let { addPost } = useContext(PostContext);
+  let { addPost} = useContext(PostContext);
   const navigate = useNavigate();
 
   const getData = (event) => {

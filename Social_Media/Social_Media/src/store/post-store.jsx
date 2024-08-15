@@ -30,7 +30,6 @@ export const PostContext = createContext({
 const PostContextProvide = ({ children }) => {
   // Reducer hook
   const [postList, dispatchPostList] = useReducer(postListReducer, []);
-  const [spinner, setSpinner] = useState(false);
   useEffect(() => {
     setSpinner(true);
     fetch("https://dummyjson.com/posts")
@@ -66,7 +65,6 @@ const PostContextProvide = ({ children }) => {
         postList,
         addPost,
         deletePost,
-        spinner,
       }}
     >
       {children}
