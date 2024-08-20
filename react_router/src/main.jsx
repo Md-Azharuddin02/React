@@ -1,13 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Route, RouterProvider, Routes, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import Home from './Components/Home.jsx';
 import Login from './Components/Login.jsx'
 import Feature from './Components/Feature.jsx';
 import Pricing from './Components/Pricing.jsx';
 import ContactUs from './Components/ContactUs.jsx';
 
+/*  This is the first method of create rout for the component
 const router = createBrowserRouter([
   {path:'/', element: <App/>,children:[
     {path:'', element : <Home/>},
@@ -17,7 +18,20 @@ const router = createBrowserRouter([
     {path:'/login', element : <Login/>},
   ]}
 ])
+*/
 
+// This is the second way of set the routes for the elements
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element = {<App/>}>
+      <Route path='' element={<Home/>}/>
+      <Route path='' element={<Feature/>}/>
+      <Route path='' element={<Pricing/>}/>
+      <Route path='' element={<ContactUs/>}/>
+      <Route path='' element={<Login/>}/>
+    </Route>
+  )
+)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
