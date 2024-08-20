@@ -40,6 +40,14 @@ function Header() {
           </li>
           <li className="nav-item">
             <NavLink
+              to="/user"
+              className={({isActive}) => `nav-link ${isActive ? "active" : ""}`}
+            >
+              Users
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
               to="/login"
               className={({isActive}) => `nav-link ${isActive ? "active" : " "}`}
             >
