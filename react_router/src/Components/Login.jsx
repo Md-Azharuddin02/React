@@ -55,7 +55,7 @@ function Login() {
                   type="submit"
                 >
                   <svg className="bi me-1" width="16" height="16">
-                    <use xlinkHref="#twitter"></use>
+                    <use xlink:href="#twitter"></use>
                   </svg>
                   Sign up with Twitter
                 </button>
@@ -64,7 +64,7 @@ function Login() {
                   type="submit"
                 >
                   <svg className="bi me-1" width="16" height="16">
-                    <use xlinkHref="#facebook"></use>
+                    <use xlink:href="#facebook"></use>
                   </svg>
                   Sign up with Facebook
                 </button>
@@ -73,7 +73,7 @@ function Login() {
                   type="submit"
                 >
                   <svg className="bi me-1" width="16" height="16">
-                    <use xlinkHref="#github"></use>
+                    <use xlink:href="#github"></use>
                   </svg>
                   Sign up with GitHub
                 </button>
